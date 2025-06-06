@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+    <title>Cars API</title>
+</head>
+<body>
+    <div class="container mx-auto p-4 flex flex-col h-screen">
+        <div class="title flex items-center justify-top flex-col items-center mb-20">
+            <h1 class="text-4xl font-bold mt-20">Cars API</h1>
+            <p class="text-2xl ">Vind hier de auto die je zoekt</p>
+        </div>
+        <div class="zoeken flex">
+            <!-- Sidebar -->
+            <div class="w-1/4 p-4 border-r border-gray-300">
+                <h2 class="text-xl font-bold mb-4">Filter</h2>
+                <form class="flex flex-col space-y-4">
+                    <div>
+                        <label for="merk" class="block text-sm font-medium">Merk</label>
+                        <select id="merk" class="border border-gray-300 p-2 rounded w-full">
+                            <option value="">Selecteer een merk</option>
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="model" class="block text-sm font-medium">Model</label>
+                        <select id="model" class="border border-gray-300 p-2 rounded w-full">
+                            <option value="">Selecteer een model</option>
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="bouwjaar" class="block text-sm font-medium">Bouwjaar</label>
+                        <select id="bouwjaar" class="border border-gray-300 p-2 rounded w-full">
+                            <option value="">Selecteer een bouwjaar</option>
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <!-- Product Cards -->
+            <div class="w-3/4 p-4">
+                <h2 class="text-xl font-bold mb-4">Gevonden Auto's</h2>
+                <div id="product-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Product cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <hr class="text-gray-300 mt-20 mb-10">
+
+        <!-- Recomended Section -->
+        <div class="recomended mb-20 pb-20">
+            <h2 class="text-xl font-bold mb-4">Vergelijkbare Auto's</h2>
+            <div class="overflow-x-scroll scrollbar-hide whitespace-nowrap" id="recomended-scroll-container">
+                <div id="recomended-container" class="flex gap-4 mt-8">
+                    <!-- Recommended cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="car-modal" class="fixed inset-0 flex items-center justify-center hidden" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="bg-white rounded-lg p-6 w-3/4 max-w-lg relative">
+            <button id="close-modal" class="absolute cursor-pointer text-3xl top-4 right-4 text-gray-500 hover:text-gray-700">&times;</button>
+            <h2 id="modal-title" class="text-2xl font-bold mb-4">Auto Details</h2>
+            <img id="modal-image" src="" alt="Auto" class="w-full h-40 object-contain rounded mb-4">
+            <hr class="border-solid border-gray-300 mb-4">
+            <p id="modal-info" class="text-gray-700"></p>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/filter.js"></script>
+    <script src="/js/recommended.js"></script>
+    <script src="/js/dom.js"></script>
+    <script src="/js/events.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
